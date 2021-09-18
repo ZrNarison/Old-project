@@ -1,0 +1,14 @@
+.error{
+	color: red;
+	font-style:italic;
+	display: inline;
+}
+#uname,#a2,#a3,#a4,#a5{
+	width: 90px}
+#date{
+	width: 140px}
+#mod{width: 290px}
+#primo,#second,#recense,#z-1,#z-2{
+	float: left;}
+fieldset{width: 203px}
+img{width: 34px;height: 34px;}

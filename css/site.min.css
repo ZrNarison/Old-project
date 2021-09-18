@@ -1,0 +1,228 @@
+/*body
+{
+    background-color: blue;
+}
+.headding
+{   
+    background-color:#999; /*rgb(41, 41, 44); 
+    border-collapse: collapse;
+    text-decoration: aliceblue;
+    display: inline-block;
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+}
+.panel-headding h3
+{
+    text-align: center;
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}*/
+.navbar
+{
+    text-decoration: aliceblue;
+}
+nav li
+{
+    color: antiquewhite;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 0px;
+    /*text-align: center; */
+    line-height: 30px;
+    /*text-align: center;*/
+    list-style-type: none;
+    float: left;
+    position: relative;
+    text-decoration-color: white; 
+    height:30px;  
+}
+ul{
+    padding: 0px;
+    margin: 0px;
+    line-height: 20px;
+}
+nav ul li
+{
+    list-style-type: none;
+}
+a
+{
+    color:#000;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    display: block;
+    /*text-align: center;*/}
+nav li ul
+{
+    position: absolute;
+    top:30px;
+    visibility:hidden ;
+}
+nav li:hover ul
+{
+    visibility: visible;
+}
+/*nav
+{
+    background-color: brown;
+}*/
+nav li:hover
+{
+    background-color:brown;
+}
+nav li ul a:hover
+{
+    background-color:#000;color:white;
+}
+.menu
+{
+    float: left;
+    width: 200px;
+    /*background-color: black;*/
+}
+nav li ul li:hover 
+{
+    display: block;
+}
+nav li ul li a
+{
+    display: block;
+    opacity: 0,9;
+}
+nav li ul li a
+{
+    background-color:#999;
+    text-decoration: white;
+    width: 200px;
+}
+.front
+{
+    background-color:blue;
+    display: block;    
+}
+.front-panel
+{
+    float:left;
+}
+.panel-front-panel
+{
+    display: inline-block;
+    text-align: center;   
+    float: left;
+}
+.front-panel-body
+{
+    margin-left: 235px;
+}
+.front-panel-body h1,.front-panel-body h2, .front-panel-body h3
+{
+    color: cornsilk;
+
+}
+.front-panel-body select
+{
+    background-color: blue;
+    color: cornsilk;
+}
+/*.panel-form
+{
+    display: block;
+}
+*/
+.panel-body-body
+{
+    display: inline-block;
+    align-content: center;
+    margin-top: 0px;
+    background-color:wheat;
+    margin-right: 1px;
+    margin-left:1px;
+    align-self: center;
+}
+
+body
+{
+    text-align: center;
+}
+
+.form-group
+{
+    text-align: justify;
+    margin-top: 12px;
+}
+.from-group-form
+{
+    display: block;
+    margin-top: 10px;
+    height: 80px;
+}
+case
+{
+  margin-left: 0px;
+}
+.from-group-form-head
+{
+    
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
+}
+.from-group-form-body
+{
+    height: 50px;
+    margin-left: Opx;
+    display: inline-block;
+    margin-top: 0px;
+}
+.from-group-form-body-form
+{
+    height: 30px;
+    margin-top: 0px;
+}
+.from-group-form-body-form label
+{
+    margin: 0px;
+}
+
+.from-group-form-body-form input
+{
+    margin-left: 0px;
+    text-align: center;
+}
+input
+{
+    height: 20px;
+    width: 200px;
+}
+#corps
+{
+    height: 45px;
+}
+.#a
+{
+    size: 32px;
+    height: 200px
+}
+.buttom
+{
+   /* margin-left: 80%;*/
+    margin-top: 15px;
+    height: 30px;
+    width: 100px;
+    background-color: green;
+    color: white;
+    /*border-collapse: collapse;*/
+}
+#btn-action
+{
+    margin-left: 40%;
+}
+#btn-site
+{
+    margin-left: 80%;
+}

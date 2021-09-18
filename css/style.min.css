@@ -1,0 +1,297 @@
+.front
+{
+    display: block;
+    background-color:#eee
+}
+.front-panel
+{
+    float:left;
+}
+.panel-front-panel
+{
+    display: inline-block;
+    text-align: center;
+    /*float:left;*/
+}
+.front-panel-body
+{
+    margin-left: 235px;
+    /*padding-top:30px;
+    padding-bottom:30px;
+    margin-bottom:30px;
+    color:inherit;*/
+}
+.front-panel-body h1,.front-panel-body h2, .front-panel-body h3
+{
+    color: blue;
+}
+.front-panel-body select
+{
+    background-color: white;
+    color: blue;
+}
+.container-fluid
+{
+    border: seagreen;
+}
+.row
+{
+    background-color:#444;/*rgb(41, 41, 44); */
+    border-collapse: collapse;
+    text-decoration: aliceblue;
+    display: inline-block;
+    width: 100%;
+    padding: 0px;
+    /*height: 100%;*/
+    text-align: center;
+    height: 32px;
+}
+.panel-headding h3
+{
+    text-align: center;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+.navbar
+{
+    background-color:#222;
+    border-color:#080808;
+}
+nav li
+{
+    color: antiquewhite;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 0px;
+    line-height: 30px;
+    list-style-type: none;
+    float: left;
+    position: relative;
+    text-decoration-color: white; 
+    height:30px;  
+}
+ul{
+    padding: 0px;
+    margin: 0px;
+    line-height: 20px;
+    height: 20px;
+}
+nav ul li
+{
+    list-style-type: none;
+}
+a
+{
+    color:#000;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    display: block;
+}
+nav li ul
+{
+    position: absolute;
+    top:30px;
+    visibility:hidden ;
+}
+nav li:hover ul
+{
+    visibility: visible;
+}
+nav li:hover
+{
+    background-color:#286090;
+}
+nav li ul a:hover
+{
+    background-color:#000;color:white;
+}
+.menu
+{
+    float: left;
+    width: 200px;
+    text-align: center;
+    margin-top: 1px;
+    size: 100px;
+}
+nav li ul li:hover 
+{
+    display: block;
+}
+nav li ul li a
+{
+    display: block;
+    opacity: 0,9;
+}
+nav li ul li a
+{
+    background-color:#444;
+    text-decoration: white;
+    width: 200px;
+}
+
+.panel-form
+{
+    display: block;
+}
+
+.panel-body-body
+{
+    display: inline-block;
+    align-content: center;
+    margin-top: 0px;
+    /*background-color:wheat;*/
+    margin-right: 1px;
+    margin-left:1px;
+    /*align-self: center;*/
+}
+body
+{
+    text-align: center;
+}
+
+.form-group
+{
+    text-align: justify;
+    margin-top: 12px;
+}
+.from-group-form
+{
+    display: block;
+    margin-top: 10px;
+    height: 80px;
+}
+case
+{
+  margin-left: 0px;
+}
+.from-group-form-head
+{
+    
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
+}
+.from-group-form-body
+{
+    height: 50px;
+    margin-left: Opx;
+    display: inline-block;
+    margin-top: 0px;
+}
+.from-group-form-body-form
+{
+    height: 30px;
+    margin-top: 0px;
+}
+.from-group-form-body-form label
+{
+    margin: 0px;
+}
+
+.from-group-form-body-form input
+{
+    margin-left: 0px;
+    text-align: center;
+}
+input
+{
+    height: 20px;
+    width: 200px;
+}
+#corps
+{
+    height: 45px;
+}
+.#a
+{
+    size: 32px;
+    height: 200px
+}
+/*#primo{float:left;display: inline-block;size: 39px;width: 300px;height: 20px;}*/
+#primo,
+#condo,
+#trio,
+#quadro,
+#cinq
+{
+    float:left;
+    margin-left: 10px;
+    display: inline-block;
+}
+.buttom
+{
+   /* margin-left: 80%;*/
+    margin-top: 15px;
+    height: 30px;
+    width: 100px;
+    background-color: green;
+    color: white;
+    /*border-collapse: collapse;*/
+}
+.container-fluid
+{
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto
+}
+#btn-action
+{
+    margin-left: 40%;
+}
+#btn-site
+{
+    margin-left: 80%;
+}
+.article
+{
+    background-color:white;
+    float: left;
+    border:red 1px solid ;
+    margin-left: 0px;
+    margin-right: 120%;
+}
+#panel-site
+{
+    flo
+}
+.table
+{
+    background-color: white;
+    margin-top:20px;
+    border-collapse:collapse;
+    
+}
+tr
+{
+    
+    border: black;
+    border-radius: 2px;
+    
+}
+.form-table
+{
+    /*height: 5px;*/
+    width: 0px;
+    margin-top: 8px;
+    border-collapse: collapse;
+}
+th
+{
+    float:left;
+    display: block;
+    margin-top: 1px;
+    height: 0px;
+    border-collapse: collapse;    
+}
+td
+{
+    /*float: left;*/
+    display: block;
+    margin-left: 350px;
+    text-align: center;
+}
