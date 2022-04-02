@@ -16,8 +16,8 @@ if (($_POST['password'])==$ret["cd"])
 	{
 		if((mb_strtoupper("Responsable Suivie et Evaluation")==$ret["fo"])==$retf["f"])
 			{
-				echo("Bonjour ".mb_strtoupper($ret["fo"]))
-				/*header("location:../affiche/index.php")*/;
+				// echo("Bonjour ".mb_strtoupper($ret["fo"]))
+				header("location:../indexSite.php");
 			}else if ((mb_strtoupper("Coordonateur regional")==$ret["fo"])==$retf["f"])
 				{
 					echo("Bonjour ".mb_strtoupper($ret["fo"]));
@@ -27,8 +27,7 @@ if (($_POST['password'])==$ret["cd"])
 					}else{
 							header("location:../indexAffiche.php");
 						}
-			}else
-			{
+	}else{
 				echo(mb_strtoupper("Mot de pass incorrect !"));
-			};
+		};
 ?>

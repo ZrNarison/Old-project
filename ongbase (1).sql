@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 25 mars 2022 à 16:06
+-- Généré le :  lun. 14 mars 2022 à 18:05
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -115,8 +115,7 @@ CREATE TABLE `compte` (
 INSERT INTO `compte` (`Id`, `user`, `mdp`, `fonction`, `lieu`) VALUES
 (1, 'admin', 'service', 'Responsable Suivie et Evaluation', 'Ihorombe'),
 (2, 'Claude', 'Ra-Claude', 'Agent de terrain', 'Ihorombe'),
-(3, 'Clarelle', 'Clacla', 'Agent du bureau', 'Ihorombe'),
-(4, 'BELOHA', '1234', 'COORDONATEUR REGIONALE', 'IHOROMBE');
+(3, 'Clarelle', 'Clacla', 'Agent du bureau', 'Ihorombe');
 
 -- --------------------------------------------------------
 
@@ -146,13 +145,6 @@ CREATE TABLE `district` (
   `code_region` int(11) NOT NULL,
   `photodistrict` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `district`
---
-
-INSERT INTO `district` (`id_district`, `nomdistrict`, `code_region`, `photodistrict`) VALUES
-(291, 'IHOSY', 29, 'District_IHOSY.JPG');
 
 -- --------------------------------------------------------
 
@@ -352,8 +344,7 @@ CREATE TABLE `personnel` (
 --
 
 INSERT INTO `personnel` (`id`, `nom`, `prenom`, `im`, `fonction`, `lieu`) VALUES
-(2, 'RAKOTONDRANDRINA', 'Rija Léon', '212000', 'Responsable Administatratif et Financiere', 'Ihorombe'),
-(3, 'RAKOTOMAMONJISOA', 'Maminiaina Jean Pierre', '00000', 'Coordonateur Regionale', 'Ihorombe');
+(1, 'RAKOTOMAMONJISOA', 'Maminiaina Jean Pierre', '215422', 'Coordonateur Regionale', 'Ihorombe');
 
 -- --------------------------------------------------------
 
@@ -591,8 +582,7 @@ ALTER TABLE `naissance`
 -- Index pour la table `personnel`
 --
 ALTER TABLE `personnel`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fonction` (`fonction`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `province`
@@ -667,7 +657,7 @@ ALTER TABLE `all_mat`
 -- AUTO_INCREMENT pour la table `compte`
 --
 ALTER TABLE `compte`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `dc`
@@ -733,7 +723,7 @@ ALTER TABLE `naissance`
 -- AUTO_INCREMENT pour la table `personnel`
 --
 ALTER TABLE `personnel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `reference`
@@ -852,12 +842,6 @@ ALTER TABLE `mes_taille`
 --
 ALTER TABLE `naissance`
   ADD CONSTRAINT `naissance_ibfk_1` FOREIGN KEY (`code_site`) REFERENCES `site` (`nomsite`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `personnel`
---
-ALTER TABLE `personnel`
-  ADD CONSTRAINT `personnel_ibfk_1` FOREIGN KEY (`fonction`) REFERENCES `fonction` (`fonct`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `reference`

@@ -18,18 +18,18 @@
 		<!--?php $code=$_GET['site']; echo($code);?-->
 			<form method="POST" action="ajout/p_fe_enceinte.php" id="femmeenceinte">
 				<div class="body-panel-body" id="primo">
-					<!--?php  include_once('ajout/ongbase.php');$lie="SELECT * FROM site ORDER BY NOM_SITE";$li=$pdo->prepare($lie);$li->execute();?>
+					<?php  include_once('ajout/ongbase.php');$lie="SELECT * FROM site ORDER BY NOMSITE";$li=$pdo->prepare($lie);$li->execute();?>
 					<div class="form-group">
 						<label class="control-label">Lieu du site</label>      
         				<select name="sitefm" id="mod" class="form-control">
 						<option value="" disabled selected>Séléctionner une de Site PNNC</option>
-						<!?php while($et=$li->fetch()) {;echo "<option value='".($et['code_site'])."'>".utf8_encode($et['nom_site'])."</option>" ;};?>
+						<?php while($et=$li->fetch()) {;echo "<option value='".($et['nomsite'])."'>".utf8_encode($et['nomsite'])."</option>" ;};?>
 						</select>
 					</div>
 					<div class="form-group">
 						<label class="control-label">Date </label>	
                 		<input type="date" name="datefm" class="form-control" id="date"/>
-					</div-->
+					</div>
 					<div class="form-group">
 						<label class="control-label">Récensées:</label>
 						<input type="text" name="a1fm" id="a1" class="form-control" placeholder="récensées" size="22"/>

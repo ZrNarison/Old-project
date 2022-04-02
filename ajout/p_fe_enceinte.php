@@ -10,7 +10,7 @@
 	
 		$y =date("d-m-Y",(strtotime($b)));
 		
-			$req_site=("SELECT * FROM site WHERE code_site ='".$a."'");
+			$req_site=("SELECT * FROM site WHERE nomsite ='".$a."'");
 			$vsite=$pdo->prepare($req_site);
 			$vsite->execute();
 			$q=$vsite->fetch();

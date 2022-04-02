@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="">
+	<title>Activité PNNC</title>
+	<meta charset="utf-8" lang="fr"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/verif.js"></script>
+    <script type="text/javascript" src="js/jquery-validate.js"></script>
 </head>
 <body>
 	<div>
 		<form method="POST" action="ong.php">
 
-			<?php  require_once('ongbase.php');
+			<?php  require_once('ajout/ongbase.php');
 
-			$lie="SELECT * FROM indicateur ORDER BY District ";
+			$lie="SELECT * FROM site ";
 			$li=$pdo->prepare($lie);
           	$li->execute();?> 
           		<label for="control-label">SITE PNNC</label>      
                 <select name="site" id="mod">
-                  <?php while($et=$li->fetch()) {;
-                     echo "<option value='".($et['Site'])."'>".utf8_encode($et['Site'])."</option>" ; 
-                   };?> 
+                  <?php while($et=$li->fetch()) {;echo "<option value='".($et['nomsite'])."'>".utf8_encode($et['nomsite'])."</option>" ;};?> 
                 </select></p>
 			<div class="" id="">
 			<fieldset>
 				<legend>SITE PNNC</legend>
 					<label class="control-label">OPERATIONNELLE/FONCTIONNELLE</label>
-						<input type="number" name="of" id="of" size="5"></p>
+						<input type="text" name="of" id="of" size="5"></p>
 					<label class="control-label">AYANT RAPPORT</label>
-						<input type="number" name="ar" id="ar" size="5"></p>
+						<input type="text" name="ar" id="ar" size="5"></p>
 			</fieldset>			
 			<fieldset>
 				<legend>FEMMES ENCEINTES</legend>
 					<label class="control-label">RECENSEE</label>
-						<input type="number" name="fe" id="rcs" size="5"></p>
+						<input type="text" name="fe" id="rcs" size="5"></p>
 					<label class="control-label">REFEREE POUR CPN</label>
-						<input type="number" name="rfr" id="rpc" size="5"></p>
+						<input type="text" name="rfr" id="rpc" size="5"></p>
 					<label class="control-label">PARTICIPANT A L'EN</label>
-						<input type="number" name="pae" id="pae" size="5"></p>
+						<input type="text" name="pae" id="pae" size="5"></p>
 					<label class="control-label">ACCOUCHEMENT SOUS ASSISTANT MEDICALE</label>
-						<input type="number" name="rfr" id="assm" size="5"></p>
+						<input type="text" name="rfr" id="assm" size="5"></p>
 			</fieldset>
 			<fieldset>
 				<legend>NAISSANCES</legend>

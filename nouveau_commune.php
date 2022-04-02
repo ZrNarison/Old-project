@@ -1,12 +1,14 @@
 <!DOCTYPE html>
   <html>
   <head> 
-    <?php require_once("../ajout/ongbase.php");
+    <?php require_once("ajout/ongbase.php");
           $comm="SELECT * FROM DISTRICT ORDER BY code_region";
           $com=$pdo->prepare($comm);
           $com->execute();
     ?>
     <meta charset="utf-8" lang="fr"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -20,12 +22,12 @@
         <div class="card">
           <div class="panel-primary bg-info"><h3 class="text-center">NOUVEAU SITE COMMUNALE PNNC</h3> </div>
             <div class="panel-primary col-md-7">
-			         <form method="POST" action="../ajout/ajoutcommune.php"   enctype="multipart/form-data">
+			         <form method="POST" action="ajout/ajoutcommune.php"   enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="control-label">SITE COMMUNALE :</label>
                   <select name="codedistrict" id="codedistrict" class="text-center" required>
                     <option value="" disabled selected>Séléctionner une District</option>
-                    <?php while($tri=$com->fetch()) {;echo "<option value='".($tri['code_district'])."'>".utf8_encode($tri['nom_district'])."</option>" ;};?>
+                    <?php while($tri=$com->fetch()) {;echo "<option value='".($tri['id_district'])."'>".utf8_encode($tri['nomdistrict'])."</option>" ;};?>
                   </select>
                 </div>
                 <div class="form-group">

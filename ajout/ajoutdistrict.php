@@ -4,13 +4,15 @@
 	//Parametre et préparation de table d'insertion
 	$prov 		 	=$_POST['coderegion'];
 	$cod 		 	=$_POST['coderegion'].$_POST['code'];
-	$distric		 	=mb_strtoupper($_POST['district']);
+	$distric		=mb_strtoupper($_POST['district']);
 	$photodistrict 	=mb_strtoupper($_FILES['photo_district']['name']);
+	$extension		=pathinfo($photodistrict,PATHINFO_EXTENSION);
 	$fichierProv	=$_FILES['photo_district']['tmp_name'];
-	move_uploaded_file($fichierProv,'../img/District/'.$photodistrict);
+	$picdist		='District_'.$distric.'.'.$extension;	
+	move_uploaded_file($fichierProv,'../img/'.$picdist);
 
 	//Vérification de donnée de la base données
-	$requete="SELECT COUNT(nom_district) AS verif_distr FROM district WHERE nom_district='".$_POST['district']."'";
+	$requete="SELECT COUNT(nomdistrict) AS verif_distr FROM district WHERE nomdistrict='".$_POST['district']."'";
 	$retour=$pdo->prepare($requete);
 	$retour->execute();
 	$ret=$retour->fetch();
@@ -21,8 +23,8 @@
 		}
 	else
 		{//Insertion de le champ de la table
-			$pro=$pdo->prepare ("INSERT INTO district (code_region,code_district,nom_district,photodistrict) VALUES (?,?,?,?)");
-			$pr=array($prov,$cod,$distric,$photodistrict);
+			$pro=$pdo->prepare ("INSERT INTO district (code_region,id_district,nomdistrict,photodistrict) VALUES (?,?,?,?)");
+			$pr=array($prov,$cod,$distric,$picdist);
 			$pro->execute($pr);
 			header("location:../nouveau_district.php");
 		}

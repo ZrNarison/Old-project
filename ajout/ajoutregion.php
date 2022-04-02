@@ -7,8 +7,11 @@
 	$cod 		 	=$_POST['codeprovince'].$_POST['code'];
 	$regio		 	=mb_strtoupper($_POST['region']);
 	$photoreg 	 	=mb_strtoupper($_FILES['photoregion']['name']);
+	$extension		=pathinfo($photoreg,PATHINFO_EXTENSION);
 	$fichierProv	=$_FILES['photoregion']['tmp_name'];
-	move_uploaded_file($fichierProv,'../img/Region/'.$photoreg );
+	$picreg			='Region_'.$regio.'.'.$extension;
+	move_uploaded_file($fichierProv,'../img/'.$picreg );
+
 	//Vérification de donnée de la base données
 	$requete="SELECT COUNT(nom_region) AS verif_region FROM region WHERE nom_region='".$_POST['region']."'";
 	$retour=$pdo->prepare($requete);
@@ -22,8 +25,8 @@
 	else
 		{	
 			//Insertion de le champ de la table
-			$pro = $pdo -> prepare ("INSERT INTO region (code_province,code_region,nom_region,photoregion) VALUES (?,?,?,?)");
-			$pr  = array($prov,$cod,$regio,$photoreg);
+			$pro = $pdo -> prepare ("INSERT INTO region (code_province,id_region,nom_region,photoregion) VALUES (?,?,?,?)");
+			$pr  = array($prov,$cod,$regio,$picreg);
 			$pro -> execute($pr);
 			header("location:../nouveau_region.php");
 		}

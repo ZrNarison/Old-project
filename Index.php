@@ -23,10 +23,6 @@
 							<?php require_once("./ajout/verficateur.php");while($rel=$lieure->fetch()) {;echo "<option value='".($rel['user'])."'>".utf8_encode($rel['user'])."</option>" ;};?> 
                 		</select>
 					</div>
-					<!--div class="form-group">
-						<label class="control-label">Utilisateur </label>
-        				<input type="text" name="pseudo" id="users" class="form-control" />
-					</div-->
 					<div class="form-group">
 						<label class="control-label">Mot de pass</label>
 						<input type="password" name="password" id="passwordlogin" class="form-control" />

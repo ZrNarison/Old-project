@@ -1,5 +1,4 @@
-<?php require_once("../ajout/ongbase.php");
-
+<?php require_once("ajout/ongbase.php");
     $site="SELECT * FROM site";
     $sit=$pdo->prepare($site);
     $sit->execute();
@@ -30,7 +29,7 @@
   <title>JOURNAL ACTIVITE PNNC</title>
   </head>
   <body>
-  <div class="navbar navbar-expand-sm bg-dark navbar-nav"><?php require("../complement/entete2.php") ?></div>
+  <div class="navbar navbar-expand-sm bg-dark navbar-nav"><?php require("complement/entete2.php") ?></div>
 <div class="container spacer col-sm-12 col-xs-49 col-md-offset-1">
   <div class="card">
   <h3>RAPPORT D'ACTIVITE PNCC :<em>Repportage</em></h3>  

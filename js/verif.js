@@ -167,6 +167,9 @@ $(document).ready(function(){
       }else{
          psw.attr("type","password");
       }
+   }),
+   $(document).ready(function(){
+      
    })
 });
 $(document).ready(function(){
@@ -177,3 +180,11 @@ $(document).ready(function(){
       alert(" operationnelle est + grand que ayant rapport")
    }else{alert("operationnelle est - grand que ayant rapport")}
 });
+$(document).ready(function(){
+   $('#new').on('click',function(){
+		$('#newaction').show();
+	});
+	$('#view').on('dblclick',function(){
+		$('#viewid').hide();		
+	});
+})

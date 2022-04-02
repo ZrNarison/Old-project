@@ -1,12 +1,14 @@
 <!DOCTYPE html>
   <html>
   <head> 
-    <?php require_once("../ajout/ongbase.php");
+    <?php require_once("ajout/ongbase.php");
           $reg="SELECT * FROM region ORDER BY code_province";
           $ger=$pdo->prepare($reg);
           $ger->execute(); 
     ?>
     <meta charset="utf-8" lang="fr"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -20,11 +22,11 @@
         <div class="card">
           <div class="panel-primary bg-info"><h3 class="text-center">NOUVEAU SITE DISTRICT PNNC</h3> </div>
             <div class="panel-primary col-md-7">
-			         <form method="POST" action="../ajout/ajoutdistrict.php"  enctype="multipart/form-data">
+			         <form method="POST" action="ajout/ajoutdistrict.php"  enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="control-label">REGION :</label>
                   <select name="coderegion" id="coderegion" class="text-center">
-                    <option value="" disabled selected>Séléctionner une Région</option><?php while($cm=$ger->fetch()) {;echo "<option value='".($cm['code_region'])."'>".utf8_encode($cm['nom_region'])."</option>";};?>
+                    <option value="" disabled selected>Séléctionner une Région</option><?php while($cm=$ger->fetch()) {;echo "<option value='".($cm['id_region'])."'>".utf8_encode($cm['nom_region'])."</option>";};?>
                   </select>
                 </div>
                 <div class="form-group">

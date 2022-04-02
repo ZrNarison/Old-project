@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <html>
   <head>
-    <?php require_once("../ajout/ongbase.php");
+    <?php require_once("ajout/ongbase.php");
           $site="SELECT * FROM commune ORDER BY code_district";
           $sit=$pdo->prepare($site);
           $sit->execute();
@@ -20,12 +20,12 @@
         <div class="card">
           <div class="panel-primary bg-info"><h3 class="text-center">NOUVEAU SITE QUARTIER PNNC</h3> </div>
             <div class="panel-primary col-md-7">
-			         <form method="POST" action="../ajout/ajoutsite.php" enctype="multipart/form-data">
+			         <form method="POST" action="ajout/ajoutsite.php" enctype="multipart/form-data">
                 <div class="form-group">
                   <label class="control-label">COMMUNE :</label>
                   <select name="codecommune" id="codecommune" class="text-center" required>
                     <option value=""size="92" disabled selected>Séléctionner une commune</option>
-                    <?php while($ste=$sit->fetch()) {;echo "<option value='".($ste['code_commune'])."'>".utf8_encode($ste['nom_commune'])."</option>" ;};?>
+                    <?php while($ste=$sit->fetch()) {;echo "<option value='".($ste['id_commune'])."'>".utf8_encode($ste['nomcommune'])."</option>" ;};?>
                   </select>
                 </div>
                 <div class="form-group">

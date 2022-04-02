@@ -1,10 +1,10 @@
-<?php require_once("../ajout/ongbase.php");
+<?php require_once("ajout/ongbase.php");
     
-    $si="SELECT * FROM commune ORDER BY codedistrict";
+    $si="SELECT * FROM commune ORDER BY code_district";
     $st=$pdo->prepare($si);
     $st->execute();
 
-    $comm="SELECT * FROM district ORDER BY coderegion";
+    $comm="SELECT * FROM district ORDER BY code_region";
     $com=$pdo->prepare($comm);
     $com->execute();
 
@@ -12,7 +12,7 @@
     $nm=$pdo->prepare($rq);
     $nm->execute();
 
-    $dis="SELECT *  FROM region ORDER BY codeprovince";
+    $dis="SELECT *  FROM region ORDER BY code_province";
     $di=$pdo->prepare($dis);
     $di->execute();
     

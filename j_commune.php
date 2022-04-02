@@ -1,28 +1,9 @@
-<?php require_once("ongbase.php");
-    
-    /*$si="SELECT * FROM commune ORDER BY codedistrict";
-    $st=$pdo->prepare($si);
-    $st->execute();
-
-    $comm="SELECT * FROM district ORDER BY coderegion";
-    $com=$pdo->prepare($comm);
-    $com->execute();
-
-    $rq="SELECT * FROM REGION ";
-    $nm=$pdo->prepare($rq);
-    $nm->execute();
-
-    $dis="SELECT *  FROM region ORDER BY codeprovince";
-    $di=$pdo->prepare($dis);
-    $di->execute();*/
+<?php require_once("ajout/rq_act.php");
     
     $reg="SELECT * FROM district";
     $re=$pdo->prepare($reg);
     $re->execute();
 
-    $req="SELECT * FROM  DISTRICT As dtr, COMMUNE As cmn, SITE As ste, ACTIVITE As act WHERE dtr.nomdistrict=cmn.codedistrict AND cmn.nomcommune=ste.codecommune AND ste.nomsite=act.codesite";
-    $rq=$pdo->prepare($req);
-    $rq->execute();
   ?>
 <!DOCTYPE html>
   <html>
@@ -37,75 +18,57 @@
 </head>
 <body>
 <div class="navbar navbar-expand-sm bg-dark navbar-nav"><?php require("complement/entete2.php") ?></div>
-    <div class="container row">
-      <div class="col-sm-3 col-md-3">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <?php require("pub.jsx");?>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-8"><?php require("tete.php") ?>
-        <div class="panel-form">
-          <label class="control-label">COMMUNE:</label>
-          <select>
-            <option value="" disabled Selected>Séléctionnez une de Région</option>
-            <?php while($q=$re->fetch()) {;echo "<option value='".($q['NOMDISTRICT'])."'>".utf8_encode($q['NOMDISTRICT'])."</option>" ;};?>
-          </select> <input type="submit" name="s" value="filtre">
-                <table class="table"><?php while ($v=$rq->fetch()) {;?>                   
-                  <thead>
-                    <tr>
-                      <th>District</th><th>Commune</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <td><?php echo($v["NOMDISTRICT"]); ?></td><td><?php echo($v["NOMCOMMUNE"]); ?></td>
-                  </tbody>
-                    </td>
-                      <div>
+  <div class="col-md-12"><!--?php //require("ajout/tete.php") ?-->
+    <div class="panel-form">
+      <label class="control-label">COMMUNE:</label>
+        <select>
+          <option value="" disabled Selected>Séléctionnez une de Région</option><?php while($q=$re->fetch()) {;echo "<option value='".($q['nomdistrict'])."'>".utf8_encode($q['nomdistrict'])."</option>" ;};?>
+        </select>
+          <input type="submit" name="s" value="filtre">
+            <table class="table">                  
+              <thead class="col-md-5">
+                <tr>
+                  <th>District</th>
+                  <th>Commune</th>
+                  <th>Site</th>
+                  <th>Date d'activité</th>
+                  <th>Opérationnel/Fonctionnel</th>
+                  <th>Ayant rapport</th>
+                  <th>Taux de rapportage</th>
+                  <th>Femme Enceinte Récensées</th>
+                  <th>Femme Enceinte Réferé CPN</th>
+                  <th>Taux de suivi CPN</th>
+                  <th>Femme Enceinte Réferé CPN</th>
+                  <th>Taux de participation EN</th>
+                  <th>Accouchement sous assistant médicale</th>
+                  <th>Taux Accouchement sous assistant médicale</th>
+                  <th>Nouveau nés récensé</th>
+                  <th>Nouveau nés vivant</th>
+                </tr>
+              </thead><?php while ($v=$rq->fetch()) {;?> 
+              <tbody>
+                <td><?php echo($v["nomdistrict"]); ?></td>
+                <td><?php echo($v["nomcommune"]); ?></td>
+                <td><?php echo($v["nomsite"]); ?></td>
+                <td><?php echo($v["dateactivite"]); ?></td>
+                <td><?php $k=($v["oper_fonc"]);echo($k); ?></td>
+                <td><?php $ar=($v["ayantrapport"]);echo($ar) ?></td>
+                <td><?php $tr=(($ar*100)/$k);echo($tr),"%"; ?></td>
+                <td><?php $fer=($v["FMENCEINTE_RECENSE"]);echo($fer);?></td>
+                <td><?php $fec=($v["FMENCEINTE_CPN"]);echo($fec);?></td>
+                <td><?php $ftc=(($fec*100)/$fer);echo($ftc),"%";?></td>
+                <td><?php $fee=($v["FMENCEINTE_EN"]);echo($fee);?></td>
+                <td><?php $ftc=(($fee*100)/$fer);echo($ftc),"%";?></td>
+                <td><?php $fem=($v["FMENCEINTE_ACCOUC_MEDI"]);echo($fem);?></td>
+                <td><?php $fam=(($fem*100)/$fer);echo($fam),"%";?></td>
+                <td><?php $nvr=($v["NAISSANCE_NOUV_NAIS_RECENSE"]);echo($nvr);?></td>
+                <td><?php $nvv=($v["NAISSANCE_NAIS_VIV"]);echo($nvv);?></td> 
+              </tbody>
+                        
                         
                       </div>
                       <div>
-                        <th>Lieu du site</th><td><?php echo($v["NOMSITE"]); ?></td>
-                      </div>
-                      <div>
-                        <th>Date d'activité</th><td><?php echo($v["dateactivite"]); ?></td>
-                      </div>
-                      <div>
-                        <th>Opérationnel/Fonctionnel</th><td><?php $k=($v["OPER_FONC"]);echo($k); ?></td>
-                      </div>
-                      <div>
-                        <th>Ayant rapport</th><td><?php $ar=($v["AYANTRAPPORT"]);echo($ar) ?></td>
-                      </div>
-                      <div>
-                        <th>Taux de rapportage</th><td><?php $tr=(($ar*100)/$k);echo($tr),"%"; ?></td>
-                      </div>
-                      <div>
-                        <th>Femme Enceinte Récensées</th><td><?php $fer=($v["FMENCEINTE_RECENSE"]);echo($fer);?></td>
-                      </div>
-                      <div>
-                        <th>Femme Enceinte Réferé CPN</th><td><?php $fec=($v["FMENCEINTE_CPN"]);echo($fec);?></td>
-                      </div>
-                      <div>
-                        <th>Taux de suivi CPN</th><td><?php $ftc=(($fec*100)/$fer);echo($ftc),"%";?></td> 
-                      </div>
-                      <div>
-                        <th>Femme Enceinte Réferé CPN</th><td><?php $fee=($v["FMENCEINTE_EN"]);echo($fee);?></td>
-                      </div>                      
-                      <div>
-                        <th>Taux de participation EN</th><td><?php $ftc=(($fee*100)/$fer);echo($ftc),"%";?></td>
-                      </div>
-                      <div>
-                        <th>Accouchement sous assistant médicale</th><td><?php $fem=($v["FMENCEINTE_ACCOUC_MEDI"]);echo($fem);?></td>
-                      </div>
-                      <div>
-                        <th>Taux Accouchement sous assistant médicale</th><td><?php $fam=(($fem*100)/$fer);echo($fam),"%";?></td>
-                      </div>
-                      <div>
-                        <th>Nouveau nés récensé</th><td><?php $nvr=($v["NAISSANCE_NOUV_NAIS_RECENSE"]);echo($nvr);?></td>
-                      </div>
-                      <div>
-                        <th>Nouveau nés vivant</th><td><?php $nvv=($v["NAISSANCE_NAIS_VIV"]);echo($nvv);?></td>
+                        
                       </div>
                       <div>
                         <th>Proportion nouveau nés vivants</th><td><?php $pnvv=(($nvv*100)/$nvr);echo($pnvv),"%";?></td>
@@ -137,9 +100,9 @@
                       <div class="">
                         <th>Enfant de 12 a 23 mois récensé</th><td><?php $e12a23rcs=($v["ENF_12a23_RCS"]);echo($e12a23rcs);?></td>
                       </div>
-                      <!--<div class="">
+                      <div class="">
                         <th>Enfant de 0 a 23 mois récensé</th><td><?php $e0a23rcs=($e0a5rcs+$e6a11rcs+$e12a23rcs);echo($e0a23rcs);?></td>
-                      </div>-->
+                      </div>>
                       <div>
                         <th>Enfant de 0 a 5 mois pésés</th><td><?php $e0a5pss=($v["ENF_0a5_PS_Z1"]);echo($e0a5pss);?></td>
                       </div>
@@ -149,9 +112,9 @@
                       <div class="">
                         <th>Enfant de 12 a 23 mois pésés</th><td><?php $e12a23pss=($v["ENF_12a23_PS_Z1"]);echo($e12a23pss);?></td>
                       </div>
-                      <!--<div class="">
+                      <div class="">
                         <th>Enfant de 0 a 23 mois pésés</th><td><?php $e0a23pss=($e0a5pss+$e6a11pss+$e12a23pss);echo($e0a23pss);?></td>
-                      </div>-->
+                      </div>>
                       <div class="">
                         <th>Taux de couverture enfant 0 a 5 mois</th><td><?php $te0a5rcs=($e0a5rcs);$te0a5pss=($e0a5pss);echo(($te0a5pss*100)/$te0a5rcs),"%";?></td>
                       </div>

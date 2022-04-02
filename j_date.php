@@ -1,4 +1,4 @@
-<?php require_once("../ajout/ongbase.php");
+<?php require_once("ajout/ongbase.php");
     
     $si="SELECT * FROM commune ORDER BY codedistrict";
     $st=$pdo->prepare($si);
